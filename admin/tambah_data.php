@@ -14,28 +14,52 @@
         <h2 class="mb-4">Tambah Data Makanan</h2>
         <form method="post" action="tambah.php">
             <div class="mb-3">
-                <label for="nama_makanan" class="form-label">Nama Makanan</label>
-                <input type="text" class="form-control" id="nama_makanan" name="nama_makanan" required>
-            </div>
-            <div class="mb-3">
-                <label for="tingkat_kesulitan" class="form-label">Tingkat Kesulitan</label>
-                <input type="text" class="form-control" id="tingkat_kesulitan" name="tingkat_kesulitan" required>
-            </div>
-            <div class="mb-3">
-                <label for="bahan_baku" class="form-label">Bahan Baku</label>
-                <input type="text" class="form-control" id="bahan_baku" name="bahan_baku" required>
-            </div>
-            <div class="mb-3">
                 <label for="gambar" class="form-label">Link Gambar</label>
                 <input type="text" class="form-control" id="gambar" name="gambar" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama_makanan" class="form-label">Nama Makanan</label>
+                <input type="text" class="form-control" id="nama_makanan" name="nama_makanan" required>
             </div>
             <div class="mb-3">
                 <label for="deskripsi" class="form-label">Deskripsi</label>
                 <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
             </div>
             <div class="mb-3">
+                <label for="bahan_baku" class="form-label">Bahan Baku</label>
+                <input type="text" class="form-control" id="bahan_baku" name="bahan_baku" required>
+            </div>
+            <div class="mb-3">
                 <label for="jenis_makanan" class="form-label">Jenis Makanan</label>
-                <input type="text" class="form-control" id="jenis_makanan" name="jenis_makanan" required>
+                <select class="form-select" id="id_jenis" name="jenis" required>
+                    <option value="">Pilih Jenis Makanan</option>
+                    <?php
+                    include('koneksi.php');
+                    $query = "SELECT jenis FROM jenis_makanan";
+                    $result = mysqli_query($conn, $query);
+                    
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='" . $row['jenis'] . "'>" . $row['jenis'] . "</option>";
+                    }
+                    mysqli_close($conn);
+                    ?>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tingkat_kesulitan" class="form-label">Tingkat Kesulitan</label>
+                <select class="form-select" id="id_kesulitan" name="tingkat_kesulitan" required>
+                    <option value="">Pilih Tingkat Kesulitan</option>
+                    <?php
+                    include('koneksi.php');
+                    $query = "SELECT tingkat_kesulitan FROM kesulitan";
+                    $result = mysqli_query($conn, $query);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='" . $row['tingkat_kesulitan'] . "'>" . $row['tingkat_kesulitan'] . "</option>";
+                    }
+                    mysqli_close($conn);
+                    ?>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Tambah Data</button>
         </form>

@@ -21,38 +21,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $row_makanan['nama_makanan']; ?></title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <link rel="stylesheet" href="detail_style.css">
 </head>
 
 <body>
     <!-- Judul makanan -->
-    <h2 style="text-align: center;"><?php echo $row_makanan['nama_makanan']; ?></h2>
+    <h2 class="food-title"><?php echo $row_makanan['nama_makanan']; ?></h2>
     <!-- Gambar makanan -->
-    <img style="max-width: 200px;" src="<?php echo $row_makanan['gambar']; ?>" alt="<?php echo $row_makanan['nama_makanan']; ?>">
+    <img class="food-image" src="<?php echo $row_makanan['gambar']; ?>" alt="<?php echo $row_makanan['nama_makanan']; ?>">
     <!-- Informasi makanan -->
-    <p><strong>Tingkat Kesulitan:</strong> <?php echo $row_makanan['tingkat_kesulitan']; ?></p>
-    <p><strong>Bahan Baku:</strong> <?php echo $row_makanan['bahan_baku']; ?></p>
-    <p><strong>Deskripsi:</strong> <?php echo $row_makanan['deskripsi']; ?></p>
-    <p><strong>Jenis Makanan:</strong> <?php echo $row_makanan['jenis_makanan']; ?></p>
+    <div class="description">
+        <h3>Deskripsi:</h3>
+        <p><?php echo $row_makanan['deskripsi']; ?></p><br>
+        <h3>Jenis Makanan:</h3> 
+        <p><?php echo $row_makanan['jenis']; ?></p><br>
+        <h3>Tingkat Kesulitan dalam membuatan:</h3> 
+        <p><?php echo $row_makanan['tingkat_kesulitan']; ?></p><br>
+        <h3>Bahan Baku:</h3> 
+        <p><?php echo $row_makanan['bahan_baku']; ?></p>
+    </div>
 
     <!-- Tabel ulasan makanan -->
-    <h3>Ulasan:</h3>
-    <table>
+    <h3 class="reviews-heading">Ulasan:</h3>
+    <table class="reviews-table">
         <tr>
             <th>User</th>
             <th>Rating</th>

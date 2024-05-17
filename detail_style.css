@@ -1,0 +1,57 @@
+/* CSS untuk halaman detail_makanan.php */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0ff;
+}
+
+.food-title {
+    text-align: center;
+    color: #333;
+}
+
+.food-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    padding: 10px 200px 10px 200px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.reviews-heading {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+.reviews-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.reviews-table th,
+.reviews-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.reviews-table th {
+    background-color: #f2f2f2;
+}
+
+.reviews-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

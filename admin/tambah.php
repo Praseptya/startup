@@ -3,15 +3,15 @@
 include('koneksi.php');
 
 // Tangkap data yang dikirimkan melalui form
-$nama_makanan = $_POST['nama_makanan'];
-$tingkat_kesulitan = $_POST['tingkat_kesulitan'];
-$bahan_baku = $_POST['bahan_baku'];
 $gambar = $_POST['gambar'];
+$nama_makanan = $_POST['nama_makanan'];
 $deskripsi = $_POST['deskripsi'];
-$jenis_makanan = $_POST['jenis_makanan'];
+$bahan_baku = $_POST['bahan_baku'];
+$jenis = $_POST['jenis'];
+$tingkat_kesulitan = $_POST['tingkat_kesulitan'];
 
 // Query untuk menyimpan data ke dalam database
-$query = "INSERT INTO makanan (nama_makanan, tingkat_kesulitan, bahan_baku, gambar, deskripsi, jenis_makanan) VALUES ('$nama_makanan', '$tingkat_kesulitan', '$bahan_baku', '$gambar', '$deskripsi', '$jenis_makanan')";
+$query = "INSERT INTO makanan (gambar, nama_makanan, deskripsi, bahan_baku, jenis, tingkat_kesulitan) VALUES ('$gambar', '$nama_makanan', '$deskripsi', '$bahan_baku', '$jenis', '$tingkat_kesulitan')";
 
 // Eksekusi query
 if(mysqli_query($conn, $query)) {

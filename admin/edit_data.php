@@ -33,28 +33,52 @@
                         <form method="post" action="">
                             <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
                             <div class="mb-3">
-                                <label for="nama_makanan" class="form-label">Nama Makanan</label>
-                                <input type="text" name="nama_makanan" value="<?php echo $data['nama_makanan']; ?>" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tingkat_kesulitan" class="form-label">Tingkat Kesulitan</label>
-                                <input type="text" name="tingkat_kesulitan" value="<?php echo $data['tingkat_kesulitan']; ?>" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="bahan_baku" class="form-label">Bahan Baku</label>
-                                <input type="text" name="bahan_baku" value="<?php echo $data['bahan_baku']; ?>" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
                                 <label for="gambar" class="form-label">Link Gambar</label>
                                 <input type="text" name="gambar" value="<?php echo $data['gambar']; ?>" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nama_makanan" class="form-label">Nama Makanan</label>
+                                <input type="text" name="nama_makanan" value="<?php echo $data['nama_makanan']; ?>" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
                                 <textarea name="deskripsi" class="form-control" required><?php echo $data['deskripsi']; ?></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="jenis_makanan" class="form-label">Jenis Makanan</label>
-                                <input type="text" name="jenis_makanan" value="<?php echo $data['jenis_makanan']; ?>" class="form-control" required>
+                                <label for="bahan_baku" class="form-label">Bahan Baku</label>
+                                <input type="text" name="bahan_baku" value="<?php echo $data['bahan_baku']; ?>" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jenis" class="form-label">Jenis Makanan</label>
+                                <select class="form-select" id="id_jenis" name="jenis" required>
+                                    <option value="">Pilih Jenis Makanan</option>
+                                    <?php
+                                    include('koneksi.php');
+                                    $query = "SELECT jenis FROM jenis_makanan";
+                                    $result = mysqli_query($conn, $query);
+
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<option value='" . $row['jenis'] . "'>" . $row['jenis'] . "</option>";
+                                    }
+                                    mysqli_close($conn);
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tingkat_kesulitan" class="form-label">Tingkat Kesulitan</label>
+                                <select class="form-select" id="id_kesulitan" name="tingkat_kesulitan" required>
+                                    <option value="">Pilih Tingkat Kesulitan</option>
+                                    <?php
+                                    include('koneksi.php');
+                                    $query = "SELECT tingkat_kesulitan FROM kesulitan";
+                                    $result = mysqli_query($conn, $query);
+
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<option value='" . $row['tingkat_kesulitan'] . "'>" . $row['tingkat_kesulitan'] . "</option>";
+                                    }
+                                    mysqli_close($conn);
+                                    ?>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" name="apply" class="btn btn-success">Apply</button>
@@ -64,16 +88,16 @@
                         }
                         // Proses perubahan data jika tombol Apply ditekan
                         if(isset($_POST['apply'])) {
+                            $gambar = $_POST['gambar'];
                             $id = $_POST['id'];
                             $nama_makanan = $_POST['nama_makanan'];
-                            $tingkat_kesulitan = $_POST['tingkat_kesulitan'];
-                            $bahan_baku = $_POST['bahan_baku'];
-                            $gambar = $_POST['gambar'];
                             $deskripsi = $_POST['deskripsi'];
-                            $jenis_makanan = $_POST['jenis_makanan'];
+                            $bahan_baku = $_POST['bahan_baku'];
+                            $jenis = $_POST['jenis'];
+                            $tingkat_kesulitan = $_POST['tingkat_kesulitan'];
                             
                             // Update data makanan ke database
-                            mysqli_query($conn, "UPDATE makanan SET nama_makanan='$nama_makanan', tingkat_kesulitan='$tingkat_kesulitan', bahan_baku='$bahan_baku', gambar='$gambar', deskripsi='$deskripsi', jenis_makanan='$jenis_makanan' WHERE id='$id'");
+                            mysqli_query($conn, "UPDATE makanan SET nama_makanan='$nama_makanan', tingkat_kesulitan='$tingkat_kesulitan', bahan_baku='$bahan_baku', gambar='$gambar', deskripsi='$deskripsi', jenis='$jenis' WHERE id='$id'");
                             // Redirect kembali ke index.php setelah perubahan data
                             header("Location: index.php");
                         }

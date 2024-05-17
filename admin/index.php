@@ -32,12 +32,12 @@
                                     <thead>
                                         <tr style="text-align: center; vertical-align: middle;">
                                             <th scope="col">ID</th>
-                                            <th scope="col">NAMA MAKANAN</th>
-                                            <th scope="col">TINGKAT KESULITAN</th>
-                                            <th scope="col">BAHAN BAKU</th>
                                             <th scope="col">GAMBAR</th>
+                                            <th scope="col">NAMA MAKANAN</th>
                                             <th scope="col">DESKRIPSI</th>
+                                            <th scope="col">BAHAN BAKU</th>
                                             <th scope="col">JENIS MAKANAN</th>
+                                            <th scope="col">TINGKAT KESULITAN</th>
                                             <th scope="col" colspan="2">ACTION</th>
                                         </tr>
                                     </thead>
@@ -51,13 +51,12 @@
                                         ?>
                                         <tr style="vertical-align: middle;">
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['nama_makanan']; ?></td>
-                                            <td><?php echo $row['tingkat_kesulitan']; ?></td>
-                                            <td><?php echo $row['bahan_baku']; ?></td>
                                             <td><img src="<?php echo $row['gambar']; ?>" alt="Gambar" style="max-width: 100px; max-height: 100px;" title="<?php echo $row['gambar']; ?>"> </td>
+                                            <td><?php echo $row['nama_makanan']; ?></td>
                                             <td><?php echo $row['deskripsi']; ?></td>
-                                            <td><?php echo $row['jenis_makanan']; ?></td>
-                                            <!-- Tambahkan kolom untuk tombol edit -->
+                                            <td><?php echo $row['bahan_baku']; ?></td>
+                                            <td><?php echo $row['jenis']; ?></td>
+                                            <td><?php echo $row['tingkat_kesulitan']; ?></td>
                                             <td>
                                                 <form method="post" action="edit_data.php">
                                                     <input type="hidden" name="edit" value="<?php echo $row['id']; ?>">
@@ -67,7 +66,7 @@
                                             <!-- Tambahkan kolom untuk tombol hapus -->
                                             <td>
                                                 <form method="post">
-                                                    <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                                                    <input type="hidden" name="delete_id" value="<?php include('hapus_data.php'); echo $row['id'];  ?>">
                                                     <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
                                                 </form>
                                             </td>
