@@ -5,33 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Makanan</title>
-    <!-- Load Bootstrap CSS dari CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="tambah_style.css">
 </head>
 
 <body>
     <div class="container">
-        <h2 class="mb-4">Tambah Data Makanan</h2>
+        <div class="header">
+            <h2>Tambah Data Makanan</h2>
+            <a href="index.php" class="back-button">Kembali</a>
+        </div>
         <form method="post" action="tambah.php">
-            <div class="mb-3">
-                <label for="gambar" class="form-label">Link Gambar</label>
-                <input type="text" class="form-control" id="gambar" name="gambar" required>
+            <div class="form-group">
+                <label for="gambar">Link Gambar</label>
+                <input type="text" id="gambar" name="gambar" required>
             </div>
-            <div class="mb-3">
-                <label for="nama_makanan" class="form-label">Nama Makanan</label>
-                <input type="text" class="form-control" id="nama_makanan" name="nama_makanan" required>
+            <div class="form-group">
+                <label for="nama_makanan">Nama Makanan</label>
+                <input type="text" id="nama_makanan" name="nama_makanan" required>
             </div>
-            <div class="mb-3">
-                <label for="deskripsi" class="form-label">Deskripsi</label>
-                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi</label>
+                <textarea id="deskripsi" name="deskripsi" rows="3" required></textarea>
             </div>
-            <div class="mb-3">
-                <label for="bahan_baku" class="form-label">Bahan Baku</label>
-                <input type="text" class="form-control" id="bahan_baku" name="bahan_baku" required>
+            <div class="form-group">
+                <label for="bahan_baku">Bahan Baku</label>
+                <input type="text" id="bahan_baku" name="bahan_baku" required>
             </div>
-            <div class="mb-3">
-                <label for="jenis_makanan" class="form-label">Jenis Makanan</label>
-                <select class="form-select" id="id_jenis" name="jenis" required>
+            <div class="form-group">
+                <label for="jenis_makanan">Jenis Makanan</label>
+                <select id="id_jenis" name="jenis" required>
                     <option value="">Pilih Jenis Makanan</option>
                     <?php
                     include('koneksi.php');
@@ -45,9 +47,9 @@
                     ?>
                 </select>
             </div>
-            <div class="mb-3">
-                <label for="tingkat_kesulitan" class="form-label">Tingkat Kesulitan</label>
-                <select class="form-select" id="id_kesulitan" name="tingkat_kesulitan" required>
+            <div class="form-group">
+                <label for="tingkat_kesulitan">Tingkat Kesulitan</label>
+                <select id="id_kesulitan" name="tingkat_kesulitan" required>
                     <option value="">Pilih Tingkat Kesulitan</option>
                     <?php
                     include('koneksi.php');
@@ -61,7 +63,9 @@
                     ?>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Tambah Data</button>
+            <div class="button-group">
+                <button type="submit">Tambah Data</button>
+            </div>
         </form>
     </div>
 </body>
