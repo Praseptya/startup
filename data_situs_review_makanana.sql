@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `jenis_makanan` (
   `id_jenis` int NOT NULL,
-  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `jenis_makanan`
@@ -49,7 +49,7 @@ INSERT INTO `jenis_makanan` (`id_jenis`, `jenis`) VALUES
 CREATE TABLE `kesulitan` (
   `id_kesulitan` int NOT NULL,
   `tingkat_kesulitan` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `kesulitan`
@@ -73,8 +73,8 @@ CREATE TABLE `makanan` (
   `bahan_baku` longtext NOT NULL,
   `gambar` varchar(9999) NOT NULL,
   `deskripsi` longtext NOT NULL,
-  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `makanan`
@@ -102,10 +102,10 @@ INSERT INTO `makanan` (`id`, `nama_makanan`, `tingkat_kesulitan`, `bahan_baku`, 
 
 CREATE TABLE `tabel_ulasan` (
   `id` int NOT NULL,
-  `user` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `user` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `rating` int NOT NULL,
   `comment` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `tabel_ulasan`
