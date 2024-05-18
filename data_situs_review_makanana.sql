@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 17, 2024 at 06:26 PM
+-- Generation Time: May 18, 2024 at 01:18 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -21,6 +21,38 @@ SET time_zone = "+00:00";
 -- Database: `data_situs_review_makanana`
 --
 
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `reset_auto_increment` ()   BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE current_id INT DEFAULT 0;
+    DECLARE new_id INT DEFAULT 1;
+    DECLARE item_cursor CURSOR FOR SELECT id FROM makanan ORDER BY id;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN item_cursor;
+    read_loop: LOOP
+        FETCH item_cursor INTO current_id;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        UPDATE makanan SET id = new_id WHERE id = current_id;
+        SET new_id = new_id + 1;
+    END LOOP;
+    CLOSE item_cursor;
+
+    SET @max_id = new_id - 1;
+    SET @sql = CONCAT('ALTER TABLE makanan AUTO_INCREMENT = ', @max_id + 1);
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -29,8 +61,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `jenis_makanan` (
   `id_jenis` int NOT NULL,
-  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `jenis_makanan`
@@ -39,6 +71,16 @@ CREATE TABLE `jenis_makanan` (
 INSERT INTO `jenis_makanan` (`id_jenis`, `jenis`) VALUES
 (2, 'Makanan Ringan'),
 (1, 'Makanan Utama');
+
+--
+-- Triggers `jenis_makanan`
+--
+DELIMITER $$
+CREATE TRIGGER `after_delete_makanan` AFTER DELETE ON `jenis_makanan` FOR EACH ROW BEGIN
+    CALL reset_auto_increment();
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +91,7 @@ INSERT INTO `jenis_makanan` (`id_jenis`, `jenis`) VALUES
 CREATE TABLE `kesulitan` (
   `id_kesulitan` int NOT NULL,
   `tingkat_kesulitan` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `kesulitan`
@@ -73,8 +115,8 @@ CREATE TABLE `makanan` (
   `bahan_baku` longtext NOT NULL,
   `gambar` varchar(9999) NOT NULL,
   `deskripsi` longtext NOT NULL,
-  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `jenis` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `makanan`
@@ -92,7 +134,22 @@ INSERT INTO `makanan` (`id`, `nama_makanan`, `tingkat_kesulitan`, `bahan_baku`, 
 (9, 'Martabak Manis', 'Sederhana', 'Tepung Terigu, Telur, Susu, Coklat, Kacang', 'https://www.dapurkobe.co.id/wp-content/uploads/martabak-8-rasa.jpg', 'Martabak manis adalah makanan Indonesia berupa pancake tebal yang diisi dengan coklat, kacang, atau keju.', 'Makanan Ringan'),
 (10, 'Sambal Goreng Kentang', 'Sulit', 'Kentang, Santan, Bumbu Sambal Goreng', 'https://www.masakapahariini.com/wp-content/uploads/2021/05/sambal-kentang-disajikan-500x300.jpg', 'Sambal goreng kentang adalah masakan Indonesia yang terbuat dari kentang yang digoreng dan dimasak dengan bumbu sambal goreng.', 'Makanan Utama'),
 (11, 'Pempek', 'Sulit', 'Ikan Tenggiri, Tepung Sagu, Telur, Bumbu Pempek', 'https://cdn1-production-images-kly.akamaized.net/I_WjnwIzrBmdtuIsNb3LNuE0Tps=/0x32:666x407/800x450/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3275929/original/019852800_1603432162-Pempek_Palembang__Nefri_Inge_.jpeg', 'Pempek adalah makanan khas Palembang yang terbuat dari ikan tenggiri yang digiling, dicampur dengan tepung sagu, dan dibentuk bulat.', 'Makanan Utama'),
-(12, 'Soto Betawi', 'Sulit', 'Daging Sapi, Santan, Bumbu Soto Betawi', 'https://asset.kompas.com/crops/FJsfTo1_vUpYO-lLGU94wLyIJJ8=/3x0:700x465/750x500/data/photo/2020/06/21/5eef911260b5c.jpg', 'Soto Betawi adalah varian soto khas Betawi yang terbuat dari daging sapi dan santan, disajikan dengan bumbu kacang dan tomat.', 'Makanan Utama');
+(12, 'Soto Betawi', 'Sederhana', 'Daging Sapi, Santan, Bumbu Soto Betawi', 'https://asset.kompas.com/crops/FJsfTo1_vUpYO-lLGU94wLyIJJ8=/3x0:700x465/750x500/data/photo/2020/06/21/5eef911260b5c.jpg', 'Soto Betawi adalah varian soto khas Betawi yang terbuat dari daging sapi dan santan, disajikan dengan bumbu kacang dan tomat.', 'Makanan Utama'),
+(13, 'Gudeg', 'Sulit', '    Nangka muda,Santan,Gula merah,Bawang merah,Bawang putih,Daun salam,Lengkuas,Ketumbar,Kemiri,Garam,Telur rebus,Daging ayam atau krecek', 'https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/13/2023/10/02/IMG-20231001-WA0023-99192084.jpg', 'Gudeg merupakan makanan khas Yogyakarta yang berbahan dasar nangka muda. Gudeg sangat mudah ditemui di penjuru Jogja baik di restoran maupun di penjual gudeg kaki lima.', 'Makanan Utama'),
+(14, 'Nasi', 'Sederhana', 'Nasi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nasi_dibentuk_bulat.jpg/1280px-Nasi_dibentuk_bulat.jpg', 'Nasi', 'Makanan Utama'),
+(15, 'Semur Ayam Kecap', 'Sederhana', 'Ayam, Kecap Manis, Bawang Bombay, Bawang Putih, Gula Merah, Ketumbar, Merica, Cengkeh, Daun Salam, Serai, Air, Minyak Goreng', 'https://images.tokopedia.net/img/KRMmCm/2022/9/1/f7369f0f-1737-434e-acf6-93fc4bd55043.jpg', 'Semur ayam kecap adalah masakan Indonesia yang populer, terkenal dengan cita rasa manis, gurih, dan rempah yang khas. Potongan ayam yang dimasak dalam kecap manis, dicampur dengan bumbu-bumbu rempah, serta ditambah dengan berbagai bahan tambahan untuk meningkatkan kelezatannya. Hidangan ini sering disajikan sebagai menu utama di berbagai acara dan biasanya disantap bersama nasi putih atau nasi goreng.', 'Makanan Utama');
+
+--
+-- Triggers `makanan`
+--
+DELIMITER $$
+CREATE TRIGGER `insert_makanan` BEFORE INSERT ON `makanan` FOR EACH ROW BEGIN
+    DECLARE max_id INT;
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM makanan;
+    SET NEW.id = max_id + 1;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -102,10 +159,10 @@ INSERT INTO `makanan` (`id`, `nama_makanan`, `tingkat_kesulitan`, `bahan_baku`, 
 
 CREATE TABLE `tabel_ulasan` (
   `id` int NOT NULL,
-  `user` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `rating` int NOT NULL,
   `comment` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tabel_ulasan`
@@ -185,7 +242,7 @@ ALTER TABLE `kesulitan`
 -- AUTO_INCREMENT for table `makanan`
 --
 ALTER TABLE `makanan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
