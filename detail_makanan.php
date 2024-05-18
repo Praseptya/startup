@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    
     <?php
-    // Sambungkan ke database
     include("koneksi.php");
-
-    // Ambil id makanan dari parameter URL
+    
     $id = $_GET['id'];
 
     // Query untuk mengambil data makanan berdasarkan id
@@ -18,18 +15,22 @@
     $query_ulasan = "SELECT user, rating, comment FROM tabel_ulasan WHERE id = $id";
     $result_ulasan = mysqli_query($conn, $query_ulasan);
     ?>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $row_makanan['nama_makanan']; ?></title>
-    <link rel="stylesheet" href="detail_style.css">
+    <link rel="stylesheet" href="css/detail_style.css">
 </head>
 
 <body>
-    <!-- Judul makanan -->
+    <header>
+        <h1><i>IIFOOD PALOOZA</i></h1>
+        <a href=".." class="back-button">Kembali</a>
+    </header>
+    <div class="search-bar"></div>
     <h2 class="food-title"><?php echo $row_makanan['nama_makanan']; ?></h2>
-    <!-- Gambar makanan -->
     <img class="food-image" src="<?php echo $row_makanan['gambar']; ?>" alt="<?php echo $row_makanan['nama_makanan']; ?>">
-    <!-- Informasi makanan -->
     <div class="description">
         <h3>Deskripsi:</h3>
         <p><?php echo $row_makanan['deskripsi']; ?></p><br>
@@ -41,7 +42,6 @@
         <p><?php echo $row_makanan['bahan_baku']; ?></p>
     </div>
 
-    <!-- Tabel ulasan makanan -->
     <h3 class="reviews-heading">Ulasan:</h3>
     <table class="reviews-table">
         <tr>
@@ -60,6 +60,10 @@
         }
         ?>
     </table>
+    
+    <footer>
+        <img src="logo.png" alt="logo">
+    </footer>
 </body>
 
 </html>

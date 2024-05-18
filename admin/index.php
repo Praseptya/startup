@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN PANEL</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link rel="icon" href="gambar/favicon.png" type="image/x-icon">
 </head>
 
@@ -16,10 +15,9 @@
                 <h1><i>IIFOOD PALOOZA</i></h1>
             </div>
             <div class="index-buttons">
-                <!-- Link ke halaman tambah data -->
                 <a href="tambah_data.php" class="index-button">Tambah Data</a>
-                <!-- Link ke halaman utama -->
-                <a href="../index.php" class="index-button"> Main Menu</a>
+                <a href="../index.php" class="index-button">Main Menu</a>
+                <a href="logout.php" class="index-button">Logout</a>
             </div> 
         </div>
         <div class="content">
@@ -39,9 +37,7 @@
                     </thead>
                     <tbody>
                         <?php 
-                        // Sambungkan ke database
                         include('koneksi.php');
-                        // Tampilkan data makanan
                         $query = mysqli_query($conn, "SELECT * FROM makanan");
                         while($row = mysqli_fetch_array($query)){
                         ?>
@@ -59,7 +55,6 @@
                                     <button type="submit" class="btn btn-primary">Edit</button>
                                 </form>
                             </td>
-                            <!-- Tambahkan kolom untuk tombol hapus -->
                             <td>
                                 <form method="post">
                                     <input type="hidden" name="delete_id" value="<?php include('hapus_data.php'); echo $row['id'];  ?>">

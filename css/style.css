@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 50px;
-    /* Tambahkan padding bawah untuk menghindari konten terpotong oleh footer */
 }
 
 header {
@@ -132,11 +131,16 @@ header h1 {
 }
 
 footer {
-    text-align: center;
+    text-align: right;
     padding: 10px;
     background-color: #eeeeff;
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
+}
+
+footer img {
+    width: 150px;
+    margin-right: 5px;
 }

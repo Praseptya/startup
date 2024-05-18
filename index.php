@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Palooza</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <header>
         <h1><i>IIFOOD PALOOZA</i></h1>
-        <a href="admin/index.php" class="admin-panel">Panel Admin</a>
+        <a href="admin/login.php" class="admin-panel">Panel Admin</a>
     </header>
 
     <div class="search-bar">
@@ -51,7 +51,6 @@
 
     <div class="food-list">
         <?php
-        // Sambungkan ke database
         include("koneksi.php");
 
         // Query untuk mengambil data makanan beserta rata-rata rating
@@ -80,7 +79,7 @@
     </div>
 
     <footer>
-        <p>STARTUP</p>
+        <img src="logo.png" alt="logo">
     </footer>
 
     <script src="script.js"></script>

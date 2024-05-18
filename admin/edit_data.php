@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Data Makanan</title>
-    <link rel="stylesheet" href="edit_style.css">
+    <link rel="stylesheet" href="css/edit_style.css">
 </head>
 
 <body>
@@ -15,14 +15,10 @@
             <a href="index.php" class="back-button">Kembali</a>
         </div>
         <?php
-        // Sambungkan ke database
         include('koneksi.php');
 
-        // Periksa apakah kunci 'edit' ada di dalam $_POST
         if (isset($_POST['edit'])) {
-            // Ambil ID makanan yang akan diedit
             $id = $_POST['edit'];
-            // Ambil data makanan dari database berdasarkan ID
             $query_edit = mysqli_query($conn, "SELECT * FROM makanan WHERE id='$id'");
             $data = mysqli_fetch_array($query_edit);
         ?>
@@ -38,7 +34,7 @@
                 <input type="text" name="bahan_baku" value="<?php echo $data['bahan_baku']; ?>" required>
                 <label for="jenis">Jenis Makanan</label>
                 <select name="jenis" required>
-                    <option value="<?php echo $data['jenis']; ?>">Pilih Jenis Makanan</option>
+                    <option value="<?php echo $data['jenis']; ?>" selected><?php echo $data['jenis']; ?></option>
                     <?php
                     $query = "SELECT jenis FROM jenis_makanan";
                     $result = mysqli_query($conn, $query);
@@ -50,7 +46,7 @@
                 </select>
                 <label for="tingkat_kesulitan">Tingkat Kesulitan</label>
                 <select name="tingkat_kesulitan" required>
-                    <option value="<?php echo $data['tingkat_kesulitan']; ?>">Pilih Tingkat Kesulitan</option>
+                    <option value="<?php echo $data['tingkat_kesulitan']; ?>" selected><?php echo $data['tingkat_kesulitan']; ?></option>
                     <?php
                     $query = "SELECT tingkat_kesulitan FROM kesulitan";
                     $result = mysqli_query($conn, $query);
@@ -66,20 +62,23 @@
             </form>
         <?php
         }
-        // Proses perubahan data jika tombol Apply ditekan
+
         if (isset($_POST['apply'])) {
-            $gambar = $_POST['gambar'];
             $id = $_POST['id'];
+            $gambar = $_POST['gambar'];
             $nama_makanan = $_POST['nama_makanan'];
             $deskripsi = $_POST['deskripsi'];
             $bahan_baku = $_POST['bahan_baku'];
             $jenis = $_POST['jenis'];
             $tingkat_kesulitan = $_POST['tingkat_kesulitan'];
 
-            // Update data makanan ke database
-            mysqli_query($conn, "UPDATE makanan SET nama_makanan='$nama_makanan', tingkat_kesulitan='$tingkat_kesulitan', bahan_baku='$bahan_baku', gambar='$gambar', deskripsi='$deskripsi', jenis='$jenis' WHERE id='$id'");
-            // Redirect kembali ke index.php setelah perubahan data
-            header("Location: index.php");
+            $query_update = "UPDATE makanan SET nama_makanan='$nama_makanan', tingkat_kesulitan='$tingkat_kesulitan', bahan_baku='$bahan_baku', gambar='$gambar', deskripsi='$deskripsi', jenis='$jenis' WHERE id='$id'";
+            
+            if (mysqli_query($conn, $query_update)) {
+                header("Location: index.php");
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
+            }
         }
         ?>
     </div>
