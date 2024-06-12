@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 18, 2024 at 01:18 PM
+-- Generation Time: Jun 12, 2024 at 01:57 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -123,9 +123,7 @@ CREATE TABLE `makanan` (
 --
 
 INSERT INTO `makanan` (`id`, `nama_makanan`, `tingkat_kesulitan`, `bahan_baku`, `gambar`, `deskripsi`, `jenis`) VALUES
-(1, 'Nasi Goreng', 'Sederhana', 'Nasi, Telur, Bawang Merah, Bawang Putih', 'https://assets.unileversolutions.com/recipes-v2/242794.jpg', 'Nasi goreng adalah makanan khas Indonesia yang terbuat dari nasi yang digoreng bersama bumbu dan bahan lainnya.', 'Makanan Utama'),
-(2, 'Sate Ayam', 'Sulit', 'Daging Ayam, Bumbu Sate, Kecap, Bawang Merah', 'https://www.dapurkobe.co.id/wp-content/uploads/sate-ayam.jpg', 'Sate ayam adalah makanan yang terbuat dari potongan daging ayam yang ditusuk dan dipanggang, disajikan dengan bumbu kacang.', 'Makanan Utama'),
-(3, 'Pisang Goreng', 'Mudah', 'Pisang, Tepung Terigu, Tepung Beras, Gula', 'https://www.astronauts.id/blog/wp-content/uploads/2023/11/Berbagai-Resep-Pisang-Goreng-Crispy-dan-Legit-Sejak-Gigitan-Pertama.jpg', 'Pisang goreng adalah camilan yang terbuat dari pisang yang digoreng setelah dilumuri adonan tepung.', 'Makanan Ringan'),
+(1, 'Nasi Goreng', 'Sulit', 'Nasi, Telur, Bawang Merah, Bawang Putih', 'https://assets.unileversolutions.com/recipes-v2/242794.jpg', 'Nasi goreng adalah makanan khas Indonesia yang terbuat dari nasi yang digoreng bersama bumbu dan bahan lainnya.', 'Makanan Ringan'),
 (4, 'Soto Ayam', 'Sederhana', 'Daging Ayam, Bumbu Soto, Lontong, Bawang Goreng', 'https://jogja.disway.id/upload/5f8893b14c6fe4e24da321d667a764d6.jpg', 'Soto ayam adalah sup ayam khas Indonesia yang disajikan dengan kuah bening, daging ayam, sayuran, dan bawang goreng.', 'Makanan Utama'),
 (5, 'Gado-Gado', 'Sulit', 'Kentang, Tahu, Telur, Kacang Panjang, Lontong', 'https://www.warisankuliner.com/gfx/recipes/temp_thumb-1629362058.jpg', 'Gado-gado adalah salah satu makanan khas Indonesia yang terdiri dari sayuran yang direbus dan dicampur dengan bumbu kacang.', 'Makanan Utama'),
 (6, 'Ayam Goreng', 'Sederhana', 'Daging Ayam, Tepung Terigu, Bumbu Ayam', 'https://asset.kompas.com/crops/93Z7RqI2kT4QMVlgmPgqScwgW80=/0x298:750x798/750x500/data/photo/2020/09/25/5f6da653c1860.jpg', 'Ayam goreng adalah makanan yang terbuat dari potongan daging ayam yang digoreng dengan tepung dan bumbu khas.', 'Makanan Utama'),
@@ -137,7 +135,8 @@ INSERT INTO `makanan` (`id`, `nama_makanan`, `tingkat_kesulitan`, `bahan_baku`, 
 (12, 'Soto Betawi', 'Sederhana', 'Daging Sapi, Santan, Bumbu Soto Betawi', 'https://asset.kompas.com/crops/FJsfTo1_vUpYO-lLGU94wLyIJJ8=/3x0:700x465/750x500/data/photo/2020/06/21/5eef911260b5c.jpg', 'Soto Betawi adalah varian soto khas Betawi yang terbuat dari daging sapi dan santan, disajikan dengan bumbu kacang dan tomat.', 'Makanan Utama'),
 (13, 'Gudeg', 'Sulit', '    Nangka muda,Santan,Gula merah,Bawang merah,Bawang putih,Daun salam,Lengkuas,Ketumbar,Kemiri,Garam,Telur rebus,Daging ayam atau krecek', 'https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/13/2023/10/02/IMG-20231001-WA0023-99192084.jpg', 'Gudeg merupakan makanan khas Yogyakarta yang berbahan dasar nangka muda. Gudeg sangat mudah ditemui di penjuru Jogja baik di restoran maupun di penjual gudeg kaki lima.', 'Makanan Utama'),
 (14, 'Nasi', 'Sederhana', 'Nasi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nasi_dibentuk_bulat.jpg/1280px-Nasi_dibentuk_bulat.jpg', 'Nasi', 'Makanan Utama'),
-(15, 'Semur Ayam Kecap', 'Sederhana', 'Ayam, Kecap Manis, Bawang Bombay, Bawang Putih, Gula Merah, Ketumbar, Merica, Cengkeh, Daun Salam, Serai, Air, Minyak Goreng', 'https://images.tokopedia.net/img/KRMmCm/2022/9/1/f7369f0f-1737-434e-acf6-93fc4bd55043.jpg', 'Semur ayam kecap adalah masakan Indonesia yang populer, terkenal dengan cita rasa manis, gurih, dan rempah yang khas. Potongan ayam yang dimasak dalam kecap manis, dicampur dengan bumbu-bumbu rempah, serta ditambah dengan berbagai bahan tambahan untuk meningkatkan kelezatannya. Hidangan ini sering disajikan sebagai menu utama di berbagai acara dan biasanya disantap bersama nasi putih atau nasi goreng.', 'Makanan Utama');
+(15, 'Semur Ayam Kecap', 'Sederhana', 'Ayam, Kecap Manis, Bawang Bombay, Bawang Putih, Gula Merah, Ketumbar, Merica, Cengkeh, Daun Salam, Serai, Air, Minyak Goreng', 'https://images.tokopedia.net/img/KRMmCm/2022/9/1/f7369f0f-1737-434e-acf6-93fc4bd55043.jpg', 'Semur ayam kecap adalah masakan Indonesia yang populer, terkenal dengan cita rasa manis, gurih, dan rempah yang khas. Potongan ayam yang dimasak dalam kecap manis, dicampur dengan bumbu-bumbu rempah, serta ditambah dengan berbagai bahan tambahan untuk meningkatkan kelezatannya. Hidangan ini sering disajikan sebagai menu utama di berbagai acara dan biasanya disantap bersama nasi putih atau nasi goreng.', 'Makanan Utama'),
+(16, 'Nasi Padang', 'Sederhana', 'ayam, nasi', 'https://cdn.rri.co.id/berita/1/images/1689391542821-images_(22)/1689391542821-images_(22).jpeg', 'Nasi padang 10k', 'Makanan Utama');
 
 --
 -- Triggers `makanan`
@@ -190,6 +189,26 @@ INSERT INTO `tabel_ulasan` (`id`, `user`, `rating`, `comment`) VALUES
 (10, 'Pengguna19', 5, 'Makanan yang luar biasa!'),
 (10, 'Pengguna20', 4, 'Sangat disarankan untuk dicoba');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'Arya', 'admin'),
+(2, 'rafii', 'rafii123');
+
 --
 -- Indexes for dumped tables
 --
@@ -223,6 +242,12 @@ ALTER TABLE `tabel_ulasan`
   ADD KEY `id` (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -243,6 +268,12 @@ ALTER TABLE `kesulitan`
 --
 ALTER TABLE `makanan`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
