@@ -1,0 +1,131 @@
+/* CSS untuk halaman tambah_ulasan.php */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0ff;
+    padding-bottom: 100px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #dfdfec;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #b499f8;
+    margin: 0;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: #f4848f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #f0000f;
+    transition: 0.4s;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 32px 13px;
+    background-color: #b2e4f5;
+}
+
+.review-form {
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.review-form h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.review-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.review-form input[type="text"],
+.review-form select,
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.review-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.review-form input[type="submit"] {
+    display: block;
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.review-form input[type="submit"]:hover {
+    background-color: #45a049;
+    transition: 0.3s;
+}
+
+footer {
+    text-align: right;
+    padding: 10px;
+    background-color: #dfdfec;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer img {
+    width: 150px;
+    margin-right: 5px;
+}
+
+
+/* Media queries untuk responsif pada layar yang lebih kecil */
+
+@media screen and (max-width: 768px) {
+    .review-form {
+        padding: 10px;
+    }
+    .review-form input[type="submit"] {
+        width: 100%;
+    }
+}

@@ -1,5 +1,13 @@
 /* CSS untuk halaman detail_makanan.php */
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0ff;
+    padding-bottom: 100px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -37,14 +45,6 @@ header h1 {
     background-color: #b2e4f5;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0ff;
-    padding-bottom: 100px;
-}
-
 .food-title {
     text-align: center;
     color: #333;
@@ -60,23 +60,64 @@ body {
 }
 
 .description {
-    max-width: 800px;
+    max-width: 85%;
     margin: 0 auto 20px auto;
-    padding: 10px 200px 10px 200px;
+    padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+}
+
+.description h3 {
+    margin-top: 0;
+}
+
+.reviews-section {
+    max-width: 85%;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .reviews-heading {
-    text-align: center;
-    margin-top: 30px;
+    margin: 0;
     color: #333;
 }
 
+.add-review-button {
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-review-button:hover {
+    background-color: #45a049;
+    transition: 0.4s;
+}
+
+.reviews-table-wrapper {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
 .reviews-table {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -107,4 +148,17 @@ footer {
 footer img {
     width: 150px;
     margin-right: 5px;
+}
+
+
+/* Media queries untuk responsif pada layar yang lebih kecil */
+
+@media screen and (max-width: 768px) {
+    .description,
+    .reviews-section {
+        padding: 5px;
+    }
+    .reviews-table-wrapper {
+        max-height: 150px;
+    }
 }

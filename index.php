@@ -12,7 +12,7 @@
 
     <header>
         <h1><i>IIFOOD PALOOZA</i></h1>
-        <a href="admin/login.php" class="admin-panel">Panel Admin</a>
+        <a href="admin/login.php" id="adminPanelLink" class="admin-panel">Panel Admin</a>
     </header>
 
     <div class="search-bar">
@@ -47,6 +47,35 @@
             <option value="Sederhana">Sederhana</option>
             <option value="Sulit">Sulit</option>
         </select>
+        <select id="combinedFilter">
+            <option value="all">Filter</option>
+            <optgroup label="Rating">
+                <?php
+                // Loop untuk menampilkan opsi bintang dari 1 hingga 5
+                for ($i = 1; $i <= 5; $i++) {
+                    echo '<option value="rating_' . $i . '">' . str_repeat('⭐', $i) . '</option>';
+                }
+                ?>
+            </optgroup>
+            <optgroup label="Alphabet">
+                <?php
+                // Loop untuk menampilkan opsi alfabet dari A hingga Z
+                for ($i = 65; $i <= 90; $i++) {
+                    $letter = chr($i);
+                    echo '<option value="alphabet_' . $letter . '">' . $letter . '</option>';
+                }
+                ?>
+            </optgroup>
+            <optgroup label="Jenis">
+                <option value="jenis_Makanan Utama">Makanan Utama</option>
+                <option value="jenis_Makanan Ringan">Makanan Ringan</option>
+            </optgroup>
+            <optgroup label="Tingkat Kesulitan">
+                <option value="tingkat_Mudah">Mudah</option>
+                <option value="tingkat_Sederhana">Sederhana</option>
+                <option value="tingkat_Sulit">Sulit</option>
+            </optgroup>
+        </select>
     </div>
 
     <div class="food-list">
@@ -78,7 +107,7 @@
         ?>
     </div>
 
-    <footer>
+    <footer id="footer">
         <img src="logo.png" alt="logo">
     </footer>
 
