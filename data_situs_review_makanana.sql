@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 12, 2024 at 01:57 AM
+-- Generation Time: Jun 19, 2024 at 02:24 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -187,7 +187,14 @@ INSERT INTO `tabel_ulasan` (`id`, `user`, `rating`, `comment`) VALUES
 (9, 'Pengguna17', 2, 'Kualitas makanan mengecewakan'),
 (9, 'Pengguna18', 1, 'Tidak suka dengan rasa makanannya'),
 (10, 'Pengguna19', 5, 'Makanan yang luar biasa!'),
-(10, 'Pengguna20', 4, 'Sangat disarankan untuk dicoba');
+(10, 'Pengguna20', 4, 'Sangat disarankan untuk dicoba'),
+(1, 'udin', 1, 'Mantap'),
+(1, 'June', 5, 'Nasgor depan rumah enak banget\r\n'),
+(1, 'Preek', 4, 'Nasi Goyeng\r\n'),
+(1, 'Ray', 3, 'Kepedesan'),
+(1, 'Hmmm', 2, 'hmmm'),
+(1, 'Penggila Nasgor', 5, 'Sangat Mantap'),
+(1, 'rantut', 2, 'ga enak');
 
 -- --------------------------------------------------------
 
