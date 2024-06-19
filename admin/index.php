@@ -16,7 +16,11 @@
             </div>
             <div class="index-buttons">
                 <a href="tambah_data.php" class="index-button">Tambah Data</a>
-                <a href="../index.php" class="index-button">Main Menu</a>
+                <?php if (!isset($_SESSION['loggedin'])): ?>
+                    <a href="../index.php" class="index-button disabled" onclick="return false;">Main Menu</a>
+                <?php else: ?>
+                    <a href="../index.php" class="index-button">Main Menu</a>
+                <?php endif; ?>
                 <a href="logout.php" class="index-button">Logout</a>
             </div> 
         </div>
@@ -61,7 +65,7 @@
                                     <button type="submit" name="delete" class="btn btn-danger">Delete</button>
                                 </form>
                             </td>
-                        </tr>
+                   </tr>
                         <?php 
                             }
                         ?>

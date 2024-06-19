@@ -53,6 +53,12 @@ body {
     margin-left: 10px;
 }
 
+.index-button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+}
+
 .content {
     background-color: #fff;
     padding: 13px;
