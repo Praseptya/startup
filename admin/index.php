@@ -8,7 +8,7 @@
     <link rel="icon" href="gambar/favicon.png" type="image/x-icon">
 </head>
 
-<body>
+<body>  
     <div class="container">
         <div class="header">
             <div class="logo">
