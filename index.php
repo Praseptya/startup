@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Palooza</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -20,7 +20,6 @@
         <select id="ratingFilter">
             <option value="all">Rating</option>
             <?php
-            // Loop untuk menampilkan opsi bintang dari 1 hingga 5
             for ($i = 1; $i <= 5; $i++) {
                 echo '<option value="' . $i . '">' . str_repeat('⭐', $i) . '</option>';
             }
@@ -29,7 +28,6 @@
         <select id="alphabetFilter">
             <option value="all">Alphabet</option>
             <?php
-            // Loop untuk menampilkan opsi alfabet dari A hingga Z
             for ($i = 65; $i <= 90; $i++) {
                 $letter = chr($i);
                 echo '<option value="' . $letter . '">' . $letter . '</option>';
@@ -51,7 +49,6 @@
             <option value="all">Filter</option>
             <optgroup label="Rating">
                 <?php
-                // Loop untuk menampilkan opsi bintang dari 1 hingga 5
                 for ($i = 1; $i <= 5; $i++) {
                     echo '<option value="rating_' . $i . '">' . str_repeat('⭐', $i) . '</option>';
                 }
@@ -59,7 +56,6 @@
             </optgroup>
             <optgroup label="Alphabet">
                 <?php
-                // Loop untuk menampilkan opsi alfabet dari A hingga Z
                 for ($i = 65; $i <= 90; $i++) {
                     $letter = chr($i);
                     echo '<option value="alphabet_' . $letter . '">' . $letter . '</option>';
