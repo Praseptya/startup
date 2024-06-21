@@ -12,7 +12,6 @@
 
     <header>
         <h1><i>IIFOOD PALOOZA</i></h1>
-        <a href="admin/login.php" id="adminPanelLink" class="admin-panel">Panel Admin</a>
     </header>
 
     <div class="search-bar">
@@ -104,7 +103,12 @@
     </div>
 
     <footer id="footer">
-        <img src="logo.png" alt="logo">
+        <div class="footer-credit">
+            &copy; 2024 Food Palooza. All rights reserved.
+        </div>
+        <a href="admin/login.php">
+            <img src="logo.png" alt="logo" title="Panel Admin">
+        </a>
     </footer>
 
     <script src="script.js"></script>

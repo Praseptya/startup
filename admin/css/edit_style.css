@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ddddfa;
     margin: 0;
     padding: 0;
 }
@@ -35,7 +35,7 @@ label {
 input[type="text"],
 textarea,
 select {
-    width: 100%;
+    width: 98.5%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;

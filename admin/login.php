@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <h1><i>FOOD PALOOZA</i></h1>
+        <h1><i>IIFOOD PALOOZA</i></h1>
         <div class="login-box">
             <form action="login.php" method="post">
                 <div class="input-group">

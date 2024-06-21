@@ -19,22 +19,6 @@ header h1 {
     margin: 0;
 }
 
-.admin-panel {
-    background-color: #71c0f1;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.admin-panel:hover {
-    background-color: #1f86fb;
-    transition: 0.4s;
-    transform: scale(1.05);
-}
-
 .search-bar {
     display: flex;
     justify-content: space-around;
@@ -135,9 +119,11 @@ header h1 {
 }
 
 footer {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    background-color: #e0e0fb;
+    background-color: #dfdfec;
     position: fixed;
     width: 100%;
     bottom: 0;
@@ -146,7 +132,15 @@ footer {
 
 footer img {
     width: 150px;
-    margin-right: 5px;
+    margin-right: 20px;
+    /* Jarak kanan antara logo dan footer credit */
+}
+
+.footer-credit {
+    flex-grow: 1;
+    /* Agar footer credit bisa menempati sisa ruang di tengah */
+    text-align: center;
+    color: #666;
 }
 
 @media only screen and (max-width: 768px) {
@@ -157,7 +151,7 @@ footer img {
     #combinedFilter {
         display: block;
         width: calc(30%);
-        margin: 10px;
+        margin-left: 10px;
     }
     #ratingFilter,
     #alphabetFilter,
