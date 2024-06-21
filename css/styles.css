@@ -10,7 +10,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #dfdfec;
+    background-color: #e0e0fb;
 }
 
 header h1 {
@@ -137,7 +137,7 @@ header h1 {
 footer {
     text-align: right;
     padding: 10px;
-    background-color: #dfdfec;
+    background-color: #e0e0fb;
     position: fixed;
     width: 100%;
     bottom: 0;

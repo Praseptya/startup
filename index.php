@@ -81,7 +81,7 @@
         // Query untuk mengambil data makanan beserta rata-rata rating
         $query = "SELECT m.id, m.nama_makanan, m.gambar, m.jenis, m.tingkat_kesulitan, COALESCE(AVG(u.rating), 0) AS avg_rating
                   FROM makanan AS m
-                  LEFT JOIN tabel_ulasan AS u ON m.id = u.id
+                  LEFT JOIN ulasan AS u ON m.id = u.id
                   GROUP BY m.id";
         $result = mysqli_query($conn, $query);
 

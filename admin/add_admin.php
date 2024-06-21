@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $query = "INSERT INTO users (username, password) VALUES ('$new_username', '$password_hash')";
     if (mysqli_query($conn, $query)) {
-        echo "Admin baru berhasil ditambahkan"; 
+        header("Location: login.php?message=success");
+        exit();
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }

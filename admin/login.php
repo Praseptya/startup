@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <h1><i>IIFOOD PALOOZA</i></h1>
+        <h1><i>FOOD PALOOZA</i></h1>
         <div class="login-box">
             <form action="login.php" method="post">
                 <div class="input-group">
@@ -24,7 +24,7 @@
                 <?php
                 include('koneksi.php');
 
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username']) && isset($_POST['password'])) {
                     $username = $_POST['username'];
                     $password = $_POST['password'];
 
@@ -37,10 +37,10 @@
                             header("Location: index.php");
                             exit();
                         } else {
-                            echo "Username atau password salah";
+                            echo "<p class='error'>Username atau password salah</p>";
                         }
                     } else {
-                        echo "Username atau password salah";
+                        echo "<p class='error'>Username atau password salah</p>";
                     }
                 }
 
@@ -58,7 +58,7 @@
 
     <div id="addAdminFormContainer" class="add-admin-form-container" style="display: none;">
         <div class="add-admin-form">
-            <form action="add_admin.php" method="post">
+            <form id="addAdminForm" action="add_admin.php" method="post">
                 <div class="input-group">
                     <label for="new_username">Username Baru</label>
                     <input type="text" id="new_username" name="new_username" placeholder="Masukkan username baru" required>
@@ -81,6 +81,11 @@
         document.getElementById('closeFormButton').addEventListener('click', function() {
             document.getElementById('addAdminFormContainer').style.display = 'none';
         });
+
+        // Handling success message
+        <?php if (isset($_GET['message']) && $_GET['message'] == 'success') { ?>
+            alert('Admin baru berhasil ditambahkan');
+        <?php } ?>
     </script>
 </body>
 </html>

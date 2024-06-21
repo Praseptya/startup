@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e6e6fa;
+    background-color: #e0e0fb;
     margin: 0;
     padding: 0;
 }
@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2.7em;
     color: #b499f8;
     margin-bottom: 50px;
     margin-top: 10px;
@@ -64,7 +64,7 @@ h1 {
 }
 
 .add-admin-button {
-    background-color: #4caf50;
+    background-color: #5ebc5e;
     margin-left: 7px;
 }
 
@@ -94,7 +94,7 @@ h1 {
 }
 
 .add-button {
-    background-color: #4caf50;
+    background-color: #68c169;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -124,4 +124,10 @@ h1 {
 .footer a img {
     margin-top: 70px;
     width: 300px;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 10px;
 }

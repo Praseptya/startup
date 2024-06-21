@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 19, 2024 at 02:24 PM
+-- Generation Time: Jun 21, 2024 at 07:02 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -153,10 +153,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tabel_ulasan`
+-- Table structure for table `ulasan`
 --
 
-CREATE TABLE `tabel_ulasan` (
+CREATE TABLE `ulasan` (
   `id` int NOT NULL,
   `user` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `rating` int NOT NULL,
@@ -164,10 +164,10 @@ CREATE TABLE `tabel_ulasan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `tabel_ulasan`
+-- Dumping data for table `ulasan`
 --
 
-INSERT INTO `tabel_ulasan` (`id`, `user`, `rating`, `comment`) VALUES
+INSERT INTO `ulasan` (`id`, `user`, `rating`, `comment`) VALUES
 (1, 'Pengguna1', 4, 'Makanan enak, pelayanan bagus'),
 (1, 'Pengguna2', 5, 'Sangat puas dengan makanannya'),
 (2, 'Pengguna3', 3, 'Cukup baik untuk harganya'),
@@ -205,7 +205,7 @@ INSERT INTO `tabel_ulasan` (`id`, `user`, `rating`, `comment`) VALUES
 CREATE TABLE `users` (
   `id` int NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -213,8 +213,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'Arya', 'admin'),
-(2, 'rafii', 'rafii123');
+(4, 'arya', '$2y$10$ekT5DzMAp8IauJwfJtGqt.OGASoi/S3po2GCU8COls/1dIpC6ccpi'),
+(6, 'rafii', '$2y$10$PbG53He/.o0K6YVcs/XYTuMWHGFZ58NTqppAFP2qO/BW7s3gTLaVi'),
+(7, 'rifqi', '$2y$10$z/GK9VMZYkXuX9LtPLqmGeZwdS1jeu1EtCgRTftU93dON4j9SiNjK');
 
 --
 -- Indexes for dumped tables
@@ -243,9 +244,9 @@ ALTER TABLE `makanan`
   ADD KEY `tingkat_kesulitan` (`tingkat_kesulitan`);
 
 --
--- Indexes for table `tabel_ulasan`
+-- Indexes for table `ulasan`
 --
-ALTER TABLE `tabel_ulasan`
+ALTER TABLE `ulasan`
   ADD KEY `id` (`id`);
 
 --
@@ -280,7 +281,7 @@ ALTER TABLE `makanan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

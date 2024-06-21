@@ -12,7 +12,7 @@ $result_makanan = mysqli_query($conn, $query_makanan);
 $row_makanan = mysqli_fetch_assoc($result_makanan);
 
 // Query untuk mengambil ulasan makanan berdasarkan id makanan
-$query_ulasan = "SELECT user, rating, comment FROM tabel_ulasan WHERE id = $id";
+$query_ulasan = "SELECT user, rating, comment FROM ulasan WHERE id = $id";
 $result_ulasan = mysqli_query($conn, $query_ulasan);
 ?>
 
@@ -20,7 +20,7 @@ $result_ulasan = mysqli_query($conn, $query_ulasan);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $row_makanan['nama_makanan']; ?></title>
-    <link rel="stylesheet" href="css/detail_style.css">
+    <link rel="stylesheet" href="css/detail_styles.css">
 </head>
 
 <body>
