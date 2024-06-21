@@ -131,14 +131,13 @@ footer {
 }
 
 footer img {
-    width: 150px;
-    margin-right: 20px;
-    /* Jarak kanan antara logo dan footer credit */
+    width: 120px;
+    margin-right: 15px;
 }
 
 .footer-credit {
     flex-grow: 1;
-    /* Agar footer credit bisa menempati sisa ruang di tengah */
+    margin-left: 100px;
     text-align: center;
     color: #666;
 }
